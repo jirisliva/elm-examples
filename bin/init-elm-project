@@ -1,0 +1,24 @@
+#!/bin/sh
+
+if [ "$#" -eq 0 ]; then
+  echo "Missing project type."
+  echo "Supported types: basic, updates, subscriptions, flags"
+
+else
+
+  SCRIPT_PATH=$0
+  PROJECT_TYPE=$1
+  TEMPLATES=${SCRIPT_PATH%/*}/../examples
+  SOURCE=$TEMPLATES/elm-$PROJECT_TYPE
+
+  if [ -d $SOURCE ]; then
+    cp -r $SOURCE/* .
+    echo "Project files copied into current folder."
+    echo "Try: elm-package install"
+  else
+    echo "Unknown project type: $PROJECT_TYPE"
+    echo "Source path $SOURCE doesn't is not valid."
+    echo "Supported types: basic, updates, subscriptions, flags"
+  fi
+  
+fi
