@@ -1,16 +1,22 @@
 # elm-examples
-- Templates - Simple applications which can be usefull as starting point of new application.
 - Examples - Demo applications to show solutios for often topics.
+- Templates - Simple applications which can be usefull as starting point of new application.
 
 ## How to run examples
 
-Just go to example sub-directory and run:
+Go to example subdirectory and compile Elm source code into HTML/JS (index.html):
 ```
-elm-reator
+elm-make
+```
+Or just run 
+```
+elm-reactor
 ```
 
 
 ## Templates
+Demo applications to show solutios for often topics. 
+Main differences are in main function.
 
 - **elm-basic** - _Hello World_, Nothing more.
 ```
