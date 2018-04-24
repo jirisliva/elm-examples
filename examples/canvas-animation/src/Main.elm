@@ -1,5 +1,9 @@
 module Main exposing (..)
 
+{-| How to draw into Canvas using
+[evancz/elm-graphics](http://package.elm-lang.org/packages/evancz/elm-graphics/latest).
+-}
+
 import Keyboard exposing (KeyCode)
 import Window exposing (Size)
 import AnimationFrame
@@ -32,9 +36,6 @@ subscriptions model =
             AnimationFrame.diffs Tick
           else
             Sub.none
-
-        -- , Keyboard.ups (key False model)
-        -- , Keyboard.downs (key True model)
         , Window.resizes Resize
         ]
 
@@ -126,26 +127,13 @@ view model =
                     [ ( "width", toString pixelWidth ++ "px" )
                     , ( "height", toString pixelHeight ++ "px" )
                     , ( "position", "absolute" )
-
-                    -- , ( "left", toString ((w - pixelWidth * r) / 2) ++ "px" )
-                    -- , ( "top", toString ((h - pixelHeight * r) / 2) ++ "px" )
                     , ( "transform-origin", "0 0" )
-
-                    -- , ( "transform", "scale(" ++ toString r ++ ")" )
                     ]
                 , id "canvas"
                 ]
                 [ renderBox model.position
                 ]
             ]
-
-
-
--- renderCollage : Html Msg
--- renderCollage =
---     Collage.collage (pixelWidth)
---         (pixelHeight)
---         []
 
 
 renderBox : Position -> Html Msg
@@ -165,14 +153,6 @@ renderBox position =
                 |> Collage.move ( position.x, position.y )
             ]
             |> Element.toHtml
-
-
-
--- Collage.rect 30 30
---     |> Collage.filled (Color.rgb 236 240 241)
---     -- |> Collage.move ( (toFloat x + xOff) * 30, (toFloat y + yOff) * -30 )
---     |> Collage.collage (width * 30) (height * 30)
---     |> Element.toHtml
 
 
 pixelWidth : Float
